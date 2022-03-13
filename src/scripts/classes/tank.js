@@ -11,6 +11,7 @@ class Tank {
     moving = null,
     bullets = [],
     shootGap = 48,
+    size = 64,
   } = {}) {
     this.direction = direction;
     this.position = position;
@@ -21,6 +22,7 @@ class Tank {
     this.moving = moving;
     this.bullets = bullets;
     this.shootGap = shootGap;
+    this.size = size;
   }
 
   move() {

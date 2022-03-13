@@ -1,27 +1,27 @@
 class Bullet {
-  constructor({ x, y, direction, speed = 6 } = {}) {
-    this.x = x;
-    this.y = y;
+  constructor({ position, direction, speed = 6, size = 36 } = {}) {
+    this.position = position;
     this.direction = direction;
     this.speed = speed;
+    this.size = size;
   }
 
   move() {
     switch (this.direction) {
       case "top": {
-        this.y -= this.speed;
+        this.position.y -= this.speed;
         break;
       }
       case "bottom": {
-        this.y += this.speed;
+        this.position.y += this.speed;
         break;
       }
       case "left": {
-        this.x -= this.speed;
+        this.position.x -= this.speed;
         break;
       }
       case "right": {
-        this.x += this.speed;
+        this.position.x += this.speed;
         break;
       }
     }

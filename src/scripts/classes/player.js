@@ -33,7 +33,7 @@ class Player extends Tank {
           this.shoot = true;
           this.bullets.push(
             new Bullet({
-              ...this.getShootPos(),
+              position: this.getShootPos(),
               direction: this.direction,
               speed: this.bulletSpeed,
             })
