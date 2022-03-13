@@ -3,7 +3,7 @@ import { canvas, ctx } from "./canvas";
 import { store } from "../store";
 import { removeEnemyWithDelay } from "../store/actions";
 
-export const drawRotatedImage = (image, x, y, w, h, angle) => {
+export const drawRotatedImage = (image, x, y, w, h, angle = 0) => {
   ctx.save();
   ctx.translate(x, y);
   ctx.rotate(angle * TO_RADIANS);
@@ -30,8 +30,11 @@ export const checkClash = (current) => {
   );
   if (~targetIndex) {
     const target = store.enemies[targetIndex];
-    target.explose?.(current.position);
-    removeEnemyWithDelay(targetIndex);
+    target.explosion = current.position;
+    removeEnemyWithDelay(targetIndex, 100);
+    setTimeout(() => {
+      target.explosion = null;
+    }, 100);
   }
   return ~targetIndex;
 };

@@ -1,6 +1,6 @@
 import { directionAngles } from "../utils/constants";
 import { checkClash, drawRotatedImage, garbageCollector } from "../utils/func";
-import { BulletImage, ShootImage } from "../utils/images";
+import { BulletImage, ExplosionImage, ShootImage } from "../utils/images";
 
 export default (tank) => {
   if (tank.moving) tank.move(tank.moving);
@@ -28,6 +28,15 @@ export default (tank) => {
       directionAngles[bullet.direction]
     );
   };
+  if (tank.explosion) {
+    drawRotatedImage(
+      ExplosionImage,
+      tank.explosion.x,
+      tank.explosion.y,
+      64,
+      64
+    );
+  }
   if (tank.bullets) {
     tank.bullets.forEach(drawBullet);
   }
