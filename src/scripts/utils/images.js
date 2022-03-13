@@ -1,11 +1,14 @@
-import TankSrc from "../../assets/tank.png";
+import PlayerSrc from "../../assets/player.png";
 import ShootSrc from "../../assets/shoot.png";
 import BulletSrc from "../../assets/bullet.png";
+import EnemySrc from "../../assets/enemy.png";
 
-export const TankImage = new Image(24, 24);
+export const PlayerImage = new Image(24, 24);
 export const ShootImage = new Image(8, 8);
 export const BulletImage = new Image(8, 8);
+export const EnemyImage = new Image(8, 8);
 
-TankImage.src = TankSrc;
+PlayerImage.src = PlayerSrc;
 ShootImage.src = ShootSrc;
 BulletImage.src = BulletSrc;
+EnemyImage.src = EnemySrc;

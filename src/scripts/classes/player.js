@@ -1,9 +1,11 @@
 import Tank from "./tank";
 import Bullet from "./bullet";
+import { PlayerImage } from "../utils/images";
 
 class Player extends Tank {
   constructor(props) {
     super(props);
+    this.image = PlayerImage;
 
     document.addEventListener("keydown", (e) => {
       switch (e.code) {

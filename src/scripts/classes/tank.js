@@ -1,16 +1,26 @@
 import { canvas } from "../utils/canvas";
 
 class Tank {
-  constructor(props) {
-    this.direction = "top";
-    this.position = { x: canvas.width / 2, y: canvas.height - 50 };
-    this.speed = 4;
-    this.bulletSpeed = 6;
-    this.border = 36;
-    this.shoot = false;
-    this.moving = null;
-    this.bullets = [];
-    this.shootGap = 48;
+  constructor({
+    direction = "top",
+    position = { x: canvas.width / 2, y: canvas.height - 50 },
+    speed = 4,
+    bulletSpeed = 6,
+    border = 36,
+    shoot = false,
+    moving = null,
+    bullets = [],
+    shootGap = 48,
+  } = {}) {
+    this.direction = direction;
+    this.position = position;
+    this.speed = speed;
+    this.bulletSpeed = bulletSpeed;
+    this.border = border;
+    this.shoot = shoot;
+    this.moving = moving;
+    this.bullets = bullets;
+    this.shootGap = shootGap;
   }
 
   move() {

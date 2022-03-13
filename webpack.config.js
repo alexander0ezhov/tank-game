@@ -35,7 +35,7 @@ module.exports = {
       directory: path.join(__dirname, "public"),
     },
     compress: true,
-    port: 8000,
+    port: 8080,
   },
   plugins: [
     new HTMLWebpackPlugin({

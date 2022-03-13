@@ -1,11 +1,11 @@
 import { directionAngles } from "../utils/constants";
 import { drawRotatedImage, garbageCollector } from "../utils/func";
-import { TankImage, BulletImage, ShootImage } from "../utils/images";
+import { BulletImage, ShootImage } from "../utils/images";
 
 export default (tank) => {
   if (tank.moving) tank.move(tank.moving);
   drawRotatedImage(
-    TankImage,
+    tank.image,
     tank.position.x,
     tank.position.y,
     64,
