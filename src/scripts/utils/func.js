@@ -1,7 +1,8 @@
-import { TO_RADIANS } from "./constants";
+import { enemyStartPositions, TO_RADIANS } from "./constants";
 import { canvas, ctx } from "./canvas";
-import { store } from "../store";
+import { actions, store } from "../store";
 import { removeEnemyWithDelay } from "../store/actions";
+import Enemy from "../classes/enemy";
 
 export const drawRotatedImage = (image, x, y, w, h, angle = 0) => {
   ctx.save();
@@ -37,4 +38,20 @@ export const checkClash = (current) => {
     }, 100);
   }
   return ~targetIndex;
+};
+
+export const generateEnemy = () => {
+  actions.addEnemy(
+    new Enemy({
+      position:
+        enemyStartPositions[Math.floor(Math.random() * 2.5)] ||
+        enemyStartPositions[1],
+      direction: "bottom",
+    })
+  );
+};
+
+export const enemyGenerator = () => {
+  generateEnemy();
+  setInterval(generateEnemy, 5000);
 };
