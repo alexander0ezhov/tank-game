@@ -15,8 +15,9 @@ export default (tank) => {
 
   const drawBullet = (bullet, idx) => {
     bullet.move();
-    if (checkClash(bullet)) return () => {};
-    if (garbageCollector(bullet.position)) return tank.bullets.splice(idx, 1);
+    const clashedElement = checkClash(bullet);
+    if (clashedElement || garbageCollector(bullet.position))
+      return tank.bullets.splice(idx, 1);
     tank.bullets[idx] = bullet;
     drawRotatedImage(
       BulletImage,
