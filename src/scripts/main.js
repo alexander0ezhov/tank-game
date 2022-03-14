@@ -4,16 +4,17 @@ import { ctx, canvas } from "./utils/canvas";
 import { enemyGenerator } from "./utils/func";
 import init from "./init";
 import { store } from "./store";
+import { setPlayer } from "./store/actions";
 
 export default () => {
   init();
   enemyGenerator();
-  const player = new Player();
-  const { enemies } = store;
+  setPlayer(new Player());
+  const { enemies, player } = store;
 
   const draw = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawTank(player);
+    if (player) drawTank(player);
     enemies.forEach((enemy) => drawTank(enemy));
     requestAnimationFrame(draw);
   };

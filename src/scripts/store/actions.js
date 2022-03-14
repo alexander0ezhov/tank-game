@@ -10,3 +10,7 @@ export const removeEnemy = (index) => {
 
 export const removeEnemyWithDelay = (index, delay = 1000) =>
   setTimeout(removeEnemy.bind(null, index), delay);
+
+export const setPlayer = (player) => {
+  store.player = player;
+};

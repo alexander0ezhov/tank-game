@@ -41,6 +41,7 @@ export const checkClash = (current) => {
 };
 
 export const generateEnemy = () => {
+  if (store.enemies > 5) return;
   const newPosition = {
     ...(enemyStartPositions[Math.floor(Math.random() * 2.5)] ||
       enemyStartPositions[1]),
