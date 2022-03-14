@@ -1,5 +1,4 @@
 import Tank from "./tank";
-import Bullet from "./bullet";
 import { PlayerImage } from "../utils/images";
 
 class Player extends Tank {
@@ -30,18 +29,7 @@ class Player extends Tank {
           break;
         }
         case "Space": {
-          this.shoot = true;
-          this.bullets.push(
-            new Bullet({
-              position: this.getShootPos(),
-              direction: this.direction,
-              speed: this.bulletSpeed,
-            })
-          );
-          setTimeout(() => {
-            this.shoot = false;
-          }, 200);
-          break;
+          this.shoot();
         }
       }
     });

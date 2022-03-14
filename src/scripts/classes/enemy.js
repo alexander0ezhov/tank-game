@@ -12,6 +12,14 @@ class Enemy extends Tank {
       this.direction = newDirection;
       this.moving = newDirection;
     }, 1000);
+
+    const shootWithDelay = (delay) =>
+      setTimeout(() => {
+        this.shoot();
+        shootWithDelay(Math.random() * 5000);
+      }, delay);
+
+    shootWithDelay(1000);
   }
 }
 

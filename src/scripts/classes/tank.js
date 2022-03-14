@@ -1,4 +1,5 @@
 import { canvas } from "../utils/canvas";
+import Bullet from "./bullet";
 
 class Tank {
   constructor({
@@ -7,7 +8,7 @@ class Tank {
     speed = 4,
     bulletSpeed = 6,
     border = 36,
-    shoot = false,
+    shooting = false,
     moving = null,
     bullets = [],
     shootGap = 48,
@@ -19,7 +20,7 @@ class Tank {
     this.speed = speed;
     this.bulletSpeed = bulletSpeed;
     this.border = border;
-    this.shoot = shoot;
+    this.shooting = shooting;
     this.moving = moving;
     this.bullets = bullets;
     this.shootGap = shootGap;
@@ -50,6 +51,20 @@ class Tank {
         return;
       }
     }
+  }
+
+  shoot() {
+    this.shooting = true;
+    this.bullets.push(
+      new Bullet({
+        position: this.getShootPos(),
+        direction: this.direction,
+        speed: this.bulletSpeed,
+      })
+    );
+    setTimeout(() => {
+      this.shooting = false;
+    }, 200);
   }
 
   getShootPos() {

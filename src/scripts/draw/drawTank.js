@@ -40,7 +40,7 @@ export default (tank) => {
   if (tank.bullets) {
     tank.bullets.forEach(drawBullet);
   }
-  if (tank.shoot) {
+  if (tank.shooting) {
     const shootPos = tank.getShootPos();
     drawRotatedImage(
       ShootImage,
