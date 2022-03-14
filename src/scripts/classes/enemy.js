@@ -8,7 +8,8 @@ class Enemy extends Tank {
     this.image = EnemyImage;
 
     setInterval(() => {
-      const newDirection = directions[Math.floor(Math.random() * 5)];
+      const newDirection =
+        directions[Math.floor(Math.random() * 5)] || directions[0];
       this.direction = newDirection;
       this.moving = newDirection;
     }, 1000);
