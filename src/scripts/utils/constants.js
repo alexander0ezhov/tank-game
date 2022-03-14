@@ -8,6 +8,8 @@ export const directionAngles = {
 };
 export const TO_RADIANS = Math.PI / 180;
 
+export const directions = ["top", "bottom", "left", "right"];
+
 export const enemyStartPositions = [
   { x: 48, y: 48 },
   { x: canvas.width / 2, y: 48 },

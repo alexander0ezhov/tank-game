@@ -41,11 +41,13 @@ export const checkClash = (current) => {
 };
 
 export const generateEnemy = () => {
+  const newPosition = {
+    ...(enemyStartPositions[Math.floor(Math.random() * 2.5)] ||
+      enemyStartPositions[1]),
+  };
   actions.addEnemy(
     new Enemy({
-      position:
-        enemyStartPositions[Math.floor(Math.random() * 2.5)] ||
-        enemyStartPositions[1],
+      position: newPosition,
       direction: "bottom",
     })
   );
