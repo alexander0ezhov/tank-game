@@ -29,7 +29,7 @@ h1 {
     position: -webkit-sticky;
     user-select: none;
     z-index: 70;
-    bottom: 40px;
+    bottom: 80px;
     font-size: 34px;
     padding: 20px 0;
 }
@@ -43,13 +43,43 @@ h1 {
     right: 20%;
 }
 
+.glass {
+    border-radius: 15%;
+    background: linear-gradient(120deg, #add7e660, #397f9360);
+}
+
 .moving-controls {
+    width: 120px;
+    height: 120px;
+    top: -24px;
     cursor: pointer;
     left: 20%;
 }
 
+.moving-controls > * {
+    position: absolute;
+}
+
+.moving-controls > #top {
+    top: 0;
+    left: 40px;
+}
+.moving-controls > #left {
+    top: 40px;
+    left: 0;
+}
+.moving-controls > #right {
+    top: 40px;
+    left: 80px;
+}
+.moving-controls > #bottom {
+     top: 80px;
+     left: 40px;
+ }
+
+
 #shoot {
-    background: linear-gradient(120deg, lightblue, #397f93);
+    padding: 20px;
 }
 
 #canvas {
