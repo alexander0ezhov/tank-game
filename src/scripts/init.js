@@ -1,5 +1,5 @@
 import BackgroundImage from "../assets/bg.jpeg";
-import { canvas } from "./utils/canvas";
+import { canvas, controls } from "./utils/canvas";
 import { checkIsTouchDevice } from "./utils/func";
 
 const resizeCanvas = () => {
@@ -12,15 +12,14 @@ const resizeCanvas = () => {
 };
 
 const initializeTouchButtons = () => {
-  const controls = document.getElementById("controls");
+  controls.active = true;
   controls.style.display = "block";
 };
 
 const init = () => {
   canvas.style.background = `url(${BackgroundImage})`;
   resizeCanvas();
-  initializeTouchButtons();
-  // if (checkIsTouchDevice()) initializeTouchButtons();
+  if (checkIsTouchDevice()) initializeTouchButtons();
 };
 
 window.addEventListener("orientationchange", resizeCanvas);

@@ -1,5 +1,6 @@
 import Tank from "./tank";
 import { PlayerImage } from "../utils/images";
+import { controls } from "../utils/canvas";
 
 class Player extends Tank {
   constructor(props) {
@@ -44,6 +45,24 @@ class Player extends Tank {
         }
       }
     });
+
+    if (controls.active) {
+      const shootButton = controls.querySelector(".shooting-controls #shoot");
+      const movingButtons = Array.from(
+        controls.querySelectorAll(".moving-controls *")
+      );
+      shootButton.addEventListener("touchstart", () => this.shoot());
+      movingButtons.forEach((btn) => {
+        btn.addEventListener("touchstart", () => {
+          this.direction = btn.id;
+          this.moving = btn.id;
+        });
+
+        btn.addEventListener("touchend", () => {
+          this.moving = null;
+        });
+      });
+    }
   }
 }
 
