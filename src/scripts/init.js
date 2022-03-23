@@ -11,10 +11,16 @@ const resizeCanvas = () => {
   canvas.style.height = resultSize;
 };
 
+const initializeTouchButtons = () => {
+  const controls = document.getElementById("controls");
+  controls.style.display = "block";
+};
+
 const init = () => {
   canvas.style.background = `url(${BackgroundImage})`;
   resizeCanvas();
-  checkIsTouchDevice();
+  initializeTouchButtons();
+  // if (checkIsTouchDevice()) initializeTouchButtons();
 };
 
 window.addEventListener("orientationchange", resizeCanvas);

@@ -10,6 +10,7 @@ html, body {
 }
 
 h1 {
+    user-select: none;
     text-align: center;
     margin: 8px auto;
 }
@@ -21,7 +22,30 @@ h1 {
 }
 
 .controls {
-    margin: 24px 0;
+    display: none;
+    position: sticky;
+    position: -webkit-sticky;
+    z-index: 70;
+    bottom: 40px;
+}
+
+.controls > * {
+    position: absolute;
+    user-select: none;
+}
+
+.shooting-controls {
+    right: 30%;
+}
+
+.moving-controls {
+    cursor: pointer;
+    left: 30%;
+}
+
+#shoot {
+    background: linear-gradient(120deg, lightblue, #397f93);
+    border: 1px solid;
 }
 
 #canvas {
