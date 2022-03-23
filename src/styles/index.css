@@ -32,20 +32,20 @@ h1 {
 .controls > * {
     position: absolute;
     user-select: none;
+    font-size: 24px;
 }
 
 .shooting-controls {
-    right: 30%;
+    right: 20%;
 }
 
 .moving-controls {
     cursor: pointer;
-    left: 30%;
+    left: 20%;
 }
 
 #shoot {
     background: linear-gradient(120deg, lightblue, #397f93);
-    border: 1px solid;
 }
 
 #canvas {
