@@ -3,10 +3,10 @@ import { canvas, controls } from "./utils/canvas";
 import { checkIsTouchDevice } from "./utils/func";
 
 const resizeCanvas = () => {
-  const viewportWidth = visualViewport.width - 40;
-  const viewportHeight = visualViewport.height - 40;
+  const viewportWidth = visualViewport.width;
+  const viewportHeight = visualViewport.height - 48;
   const minSize = Math.min(viewportWidth, viewportHeight);
-  const resultSize = `${minSize}px`;
+  const resultSize = `calc(${minSize}px - 3%)`;
   canvas.style.width = resultSize;
   canvas.style.height = resultSize;
 };

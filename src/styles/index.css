@@ -1,6 +1,8 @@
 html, body {
     margin: 0;
     padding: 0;
+    overflow: hidden;
+    height: 100vh;
 }
 
 .root {
@@ -25,14 +27,16 @@ h1 {
     display: none;
     position: sticky;
     position: -webkit-sticky;
+    user-select: none;
     z-index: 70;
     bottom: 40px;
+    font-size: 34px;
+    padding: 20px 0;
 }
 
 .controls > * {
     position: absolute;
     user-select: none;
-    font-size: 24px;
 }
 
 .shooting-controls {
