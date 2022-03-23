@@ -51,6 +51,10 @@ class Player extends Tank {
       const movingButtons = Array.from(
         controls.querySelectorAll(".moving-controls *")
       );
+      controls.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      });
       shootButton.addEventListener("touchstart", () => this.shoot());
       movingButtons.forEach((btn) => {
         btn.addEventListener("touchstart", () => {
