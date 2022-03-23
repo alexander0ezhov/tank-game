@@ -58,3 +58,8 @@ export const enemyGenerator = () => {
   generateEnemy();
   setInterval(generateEnemy, 5000);
 };
+
+export const checkIsTouchDevice = () =>
+  "ontouchstart" in window ||
+  navigator.maxTouchPoints > 0 ||
+  navigator.msMaxTouchPoints > 0;

@@ -1,3 +1,29 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.root {
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+    margin: 8px auto;
+}
+
+.canvas-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.controls {
+    margin: 24px 0;
+}
+
 #canvas {
     background-size: cover;
 }

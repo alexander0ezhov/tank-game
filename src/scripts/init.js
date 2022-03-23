@@ -1,18 +1,20 @@
 import BackgroundImage from "../assets/bg.jpeg";
 import { canvas } from "./utils/canvas";
+import { checkIsTouchDevice } from "./utils/func";
 
-const resizeCanvas = ()=>{
-  const viewportWidth = visualViewport.width - 40
-  const viewportHeight = visualViewport.height - 40
-  const minSize = Math.min(viewportWidth, viewportHeight)
-  const resultSize = `${minSize}px`
+const resizeCanvas = () => {
+  const viewportWidth = visualViewport.width - 40;
+  const viewportHeight = visualViewport.height - 40;
+  const minSize = Math.min(viewportWidth, viewportHeight);
+  const resultSize = `${minSize}px`;
   canvas.style.width = resultSize;
   canvas.style.height = resultSize;
-}
+};
 
 const init = () => {
   canvas.style.background = `url(${BackgroundImage})`;
-  resizeCanvas()
+  resizeCanvas();
+  checkIsTouchDevice();
 };
 
 window.addEventListener("orientationchange", resizeCanvas);
