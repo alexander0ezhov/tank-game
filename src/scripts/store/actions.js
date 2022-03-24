@@ -16,10 +16,10 @@ export const setPlayer = (player) => {
 };
 
 export const startGame = () => {
-  store.startScreen = false;
-  store.gameOverScreen = false;
+  store.isStartScreen = false;
+  store.isGameOverScreen = false;
 };
 
 export const gameOver = () => {
-  store.gameOverScreen = true;
+  store.isGameOverScreen = true;
 };

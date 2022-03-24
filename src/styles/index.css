@@ -17,6 +17,7 @@ h1 {
     user-select: none;
     text-align: center;
     margin: 8px auto;
+    line-height: 48px;
 }
 
 .canvas-wrapper {
@@ -61,28 +62,30 @@ h1 {
 
 .moving-controls > * {
     position: absolute;
+    line-height: 42px;
 }
 
 .moving-controls > #top {
     top: 0;
-    left: 47px;
+    left: 50px;
 }
 .moving-controls > #left {
     top: 50px;
-    left: -2px;
+    left: 0;
 }
 .moving-controls > #right {
-    top:50px;
-    left: 94px;
+    top: 50px;
+    left: 100px;
 }
 .moving-controls > #bottom {
-     top: 96px;
-     left: 47px;
+    top: 100px;
+    left: 50px;
  }
 
 
 #shoot {
     padding: 20px;
+    cursor: pointer;
 }
 
 #canvas {

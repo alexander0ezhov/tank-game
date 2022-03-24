@@ -1,8 +1,8 @@
 const store = {
   enemies: [],
   player: null,
-  startScreen: true,
-  gameOverScreen: false,
+  isStartScreen: true,
+  isGameOverScreen: false,
 };
 
 export default store;

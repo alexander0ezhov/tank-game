@@ -1,4 +1,5 @@
 import Player from "./classes/player";
+import StartScreen from "./classes/startScreen";
 import drawTank from "./draw/drawTank";
 import drawStartScreen from "./draw/drawStartScreen";
 import { ctx, canvas, fps } from "./utils/canvas";
@@ -7,20 +8,21 @@ import init from "./init";
 import { store, actions } from "./store";
 
 export default () => {
-  const { enemies, player, startScreen, gameOverScreen } = store;
   const { setPlayer } = actions;
+  const startScreen = new StartScreen();
   init();
   enemyGenerator();
   setPlayer(new Player());
 
   const draw = () => {
+    const { enemies, player, isStartScreen, isGameOverScreen } = store;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     switch (true) {
-      case !!startScreen: {
-        drawStartScreen();
+      case isStartScreen: {
+        drawStartScreen(startScreen);
         break;
       }
-      case !!gameOverScreen:
+      case isGameOverScreen:
         break;
       default:
         if (player) drawTank(player);
