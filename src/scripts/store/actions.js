@@ -14,3 +14,12 @@ export const removeEnemyWithDelay = (index, delay = 1000) =>
 export const setPlayer = (player) => {
   store.player = player;
 };
+
+export const startGame = () => {
+  store.startScreen = false;
+  store.gameOverScreen = false;
+};
+
+export const gameOver = () => {
+  store.gameOverScreen = true;
+};
