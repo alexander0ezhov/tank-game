@@ -1,6 +1,7 @@
 import BackgroundImage from "../assets/bg.jpeg";
-import { canvas, controls } from "./utils/canvas";
+import { canvas } from "./utils/canvas";
 import { checkIsTouchDevice } from "./utils/func";
+import { store, actions } from "./store";
 
 const resizeCanvas = () => {
   const viewportWidth = visualViewport.width;
@@ -11,15 +12,10 @@ const resizeCanvas = () => {
   canvas.style.height = resultSize;
 };
 
-const initializeTouchButtons = () => {
-  controls.active = true;
-  controls.style.display = "block";
-};
-
 const init = () => {
   canvas.style.background = `url(${BackgroundImage})`;
   resizeCanvas();
-  if (checkIsTouchDevice()) initializeTouchButtons();
+  if (checkIsTouchDevice()) actions.initializeTouchButtons();
 };
 
 window.addEventListener("orientationchange", resizeCanvas);

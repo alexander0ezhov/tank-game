@@ -1,12 +1,4 @@
 import { canvas, ctx } from "../utils/canvas";
-import { drawRotatedImage } from "../utils/func";
-import { StartGameImage } from "../utils/images";
-import { actions } from "../store";
-
-const size = {
-  width: 500,
-  height: 500,
-};
 
 export default (startScreen) => {
   ctx.font = "64px serif";

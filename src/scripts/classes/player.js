@@ -1,6 +1,7 @@
 import Tank from "./tank";
 import { PlayerImage } from "../utils/images";
-import { controls } from "../utils/canvas";
+import { gameIsRunning } from "../utils/func";
+import { store } from "../store";
 
 class Player extends Tank {
   constructor(props) {
@@ -8,6 +9,7 @@ class Player extends Tank {
     this.image = PlayerImage;
 
     document.addEventListener("keydown", (e) => {
+      if (!gameIsRunning) return;
       switch (e.code) {
         case "ArrowUp": {
           this.direction = "top";
@@ -36,6 +38,7 @@ class Player extends Tank {
     });
 
     document.addEventListener("keyup", (e) => {
+      if (!gameIsRunning) return;
       switch (e.code) {
         case "ArrowUp":
         case "ArrowDown":
@@ -46,17 +49,19 @@ class Player extends Tank {
       }
     });
 
-    if (controls.active) {
-      const shootButton = controls.querySelector(".shooting-controls #shoot");
-      const movingButtons = Array.from(
-        controls.querySelectorAll(".moving-controls *")
+    if (store.controls.active) {
+      if (!gameIsRunning) return;
+      store.controls.movingButtons[0].parentElement.addEventListener(
+        "touchstart",
+        (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+        }
       );
-      controls.addEventListener("touchstart", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-      });
-      shootButton.addEventListener("touchstart", () => this.shoot());
-      movingButtons.forEach((btn) => {
+      store.controls.shootButton.addEventListener("touchstart", () =>
+        this.shoot()
+      );
+      store.controls.movingButtons.forEach((btn) => {
         btn.addEventListener("touchstart", () => {
           this.direction = btn.id;
           this.moving = btn.id;

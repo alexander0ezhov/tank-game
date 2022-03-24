@@ -1,4 +1,5 @@
 import store from "./store";
+import { controls } from "../utils/canvas";
 
 export const addEnemy = (enemy) => {
   store.enemies.push(enemy);
@@ -22,4 +23,16 @@ export const startGame = () => {
 
 export const gameOver = () => {
   store.isGameOverScreen = true;
+};
+
+export const initializeTouchButtons = () => {
+  const controls = document.getElementById("controls");
+  controls.style.display = "block";
+  store.controls.active = true;
+  store.controls.shootButton = controls.querySelector(
+    ".shooting-controls #shoot"
+  );
+  store.controls.movingButtons = Array.from(
+    controls.querySelectorAll(".moving-controls *")
+  );
 };
