@@ -5,18 +5,25 @@ class StartScreen {
   constructor({ menuItems = startScreenItems } = {}) {
     this.menuItems = menuItems;
     this.carretPos = 0;
-    document.addEventListener("keydown", (e) => {
-      if (store.isStartScreen) {
+    setTimeout(() => {
+      document.addEventListener("keydown", (e) => {
+        if (!store.isStartScreen) return;
         switch (e.code) {
           case "Space": {
             this.select();
           }
         }
+      });
+      if (store.controls.active) {
+        store.controls.shootButton.addEventListener("touchstart", () => {
+          if (!store.isStartScreen) return;
+          this.select();
+        });
       }
     });
   }
   select() {
-    console.log(this.menuItems[this.carretPos].fn());
+    this.menuItems[this.carretPos].fn();
   }
 }
 

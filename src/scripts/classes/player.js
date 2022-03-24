@@ -8,70 +8,67 @@ class Player extends Tank {
     super(props);
     this.image = PlayerImage;
 
-    document.addEventListener("keydown", (e) => {
-      if (!gameIsRunning) return;
-      switch (e.code) {
-        case "ArrowUp": {
-          this.direction = "top";
-          this.moving = "top";
-          break;
+    setTimeout(() => {
+      document.addEventListener("keydown", (e) => {
+        if (!gameIsRunning) return;
+        switch (e.code) {
+          case "ArrowUp": {
+            this.direction = "top";
+            this.moving = "top";
+            break;
+          }
+          case "ArrowDown": {
+            this.direction = "bottom";
+            this.moving = "bottom";
+            break;
+          }
+          case "ArrowLeft": {
+            this.direction = "left";
+            this.moving = "left";
+            break;
+          }
+          case "ArrowRight": {
+            this.direction = "right";
+            this.moving = "right";
+            break;
+          }
+          case "Space": {
+            this.shoot();
+          }
         }
-        case "ArrowDown": {
-          this.direction = "bottom";
-          this.moving = "bottom";
-          break;
-        }
-        case "ArrowLeft": {
-          this.direction = "left";
-          this.moving = "left";
-          break;
-        }
-        case "ArrowRight": {
-          this.direction = "right";
-          this.moving = "right";
-          break;
-        }
-        case "Space": {
-          this.shoot();
-        }
-      }
-    });
-
-    document.addEventListener("keyup", (e) => {
-      if (!gameIsRunning) return;
-      switch (e.code) {
-        case "ArrowUp":
-        case "ArrowDown":
-        case "ArrowLeft":
-        case "ArrowRight": {
-          this.moving = null;
-        }
-      }
-    });
-
-    if (store.controls.active) {
-      if (!gameIsRunning) return;
-      store.controls.movingButtons[0].parentElement.addEventListener(
-        "touchstart",
-        (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-        }
-      );
-      store.controls.shootButton.addEventListener("touchstart", () =>
-        this.shoot()
-      );
-      store.controls.movingButtons.forEach((btn) => {
-        btn.addEventListener("touchstart", () => {
-          this.direction = btn.id;
-          this.moving = btn.id;
-        });
-
-        btn.addEventListener("touchend", () => {
-          this.moving = null;
-        });
       });
-    }
+
+      document.addEventListener("keyup", (e) => {
+        if (!gameIsRunning) return;
+        switch (e.code) {
+          case "ArrowUp":
+          case "ArrowDown":
+          case "ArrowLeft":
+          case "ArrowRight": {
+            this.moving = null;
+          }
+        }
+      });
+
+      if (store.controls.active) {
+        store.controls.shootButton.addEventListener("touchstart", () => {
+          if (!gameIsRunning) return;
+          this.shoot();
+        });
+        store.controls.movingButtons.forEach((btn) => {
+          btn.addEventListener("touchstart", () => {
+            if (!gameIsRunning) return;
+            this.direction = btn.id;
+            this.moving = btn.id;
+          });
+
+          btn.addEventListener("touchend", () => {
+            if (!gameIsRunning) return;
+            this.moving = null;
+          });
+        });
+      }
+    });
   }
 }
 

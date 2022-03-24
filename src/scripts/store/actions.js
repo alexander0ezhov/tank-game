@@ -35,4 +35,8 @@ export const initializeTouchButtons = () => {
   store.controls.movingButtons = Array.from(
     controls.querySelectorAll(".moving-controls *")
   );
+  controls.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  });
 };
