@@ -2,6 +2,7 @@ html, body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    font-family: sans-serif;
 }
 
 .root {
@@ -29,8 +30,8 @@ h1 {
     position: absolute;
     user-select: none;
     z-index: 70;
-    bottom: 0;
-    font-size: 34px;
+    bottom: 20px;
+    font-size: 38px;
     width: 100%;
     height: 120px;
 }
@@ -51,8 +52,8 @@ h1 {
 }
 
 .moving-controls {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     top: -24px;
     cursor: pointer;
     left: 5%;
@@ -64,19 +65,19 @@ h1 {
 
 .moving-controls > #top {
     top: 0;
-    left: 40px;
+    left: 47px;
 }
 .moving-controls > #left {
-    top: 40px;
-    left: 0;
+    top: 50px;
+    left: -2px;
 }
 .moving-controls > #right {
-    top: 40px;
-    left: 80px;
+    top:50px;
+    left: 94px;
 }
 .moving-controls > #bottom {
-     top: 80px;
-     left: 40px;
+     top: 96px;
+     left: 47px;
  }
 
 
