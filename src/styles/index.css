@@ -2,13 +2,14 @@ html, body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    height: 100vh;
 }
 
 .root {
+    position: relative;
     display: flex;
     align-items: stretch;
     flex-direction: column;
+    height: 100vh;
 }
 
 h1 {
@@ -25,13 +26,13 @@ h1 {
 
 .controls {
     display: none;
-    position: sticky;
-    position: -webkit-sticky;
+    position: absolute;
     user-select: none;
     z-index: 70;
-    bottom: 80px;
+    bottom: 0;
     font-size: 34px;
-    padding: 20px 0;
+    width: 100%;
+    height: 120px;
 }
 
 .controls > * {
@@ -40,7 +41,8 @@ h1 {
 }
 
 .shooting-controls {
-    right: 20%;
+    right: 5%;
+    top: 15%;
 }
 
 .glass {
@@ -53,7 +55,7 @@ h1 {
     height: 120px;
     top: -24px;
     cursor: pointer;
-    left: 20%;
+    left: 5%;
 }
 
 .moving-controls > * {
