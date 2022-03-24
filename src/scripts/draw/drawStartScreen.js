@@ -3,15 +3,15 @@ import { drawRotatedImage } from "../utils/func";
 import { StartGameImage } from "../utils/images";
 
 const size = {
-  width: 400,
-  height: 100,
+  width: 500,
+  height: 500,
 };
 
 export default () => {
   drawRotatedImage(
     StartGameImage,
-    (canvas.width - size.width) / 2,
-    (canvas.height - size.height) / 2,
+    (canvas.width/2),
+    (canvas.height/3),
     size.width,
     size.height
   );
