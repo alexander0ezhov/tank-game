@@ -17,6 +17,11 @@ export const startGame = () => {
   store.isGameOverScreen = false;
   store.player = new Player();
   store.enemies = [];
+  store.count = 0;
+};
+
+export const countIncrement = () => {
+  store.count++;
 };
 
 export const gameOver = () => {

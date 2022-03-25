@@ -8,6 +8,7 @@ const store = {
     shootButton: null,
     movingButtons: null,
   },
+  count: 0,
 };
 
 export default store;

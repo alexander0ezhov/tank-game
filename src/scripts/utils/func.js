@@ -1,7 +1,11 @@
 import { enemyStartPositions, TO_RADIANS } from "./constants";
 import { canvas, ctx } from "./canvas";
 import { actions, store } from "../store";
-import { gameOver, removeEnemyWithDelay } from "../store/actions";
+import {
+  countIncrement,
+  gameOver,
+  removeEnemyWithDelay,
+} from "../store/actions";
 import Enemy from "../classes/enemy";
 
 export const gameIsRunning = () =>
@@ -42,6 +46,7 @@ export const clash = (current) => {
   if (~enemyTargetIndex) {
     const target = store.enemies[enemyTargetIndex];
     explose(current.position, target, 100);
+    countIncrement();
     removeEnemyWithDelay(enemyTargetIndex);
     return ~enemyTargetIndex;
   }
