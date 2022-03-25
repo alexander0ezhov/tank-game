@@ -1,7 +1,7 @@
 import BackgroundImage from "../assets/bg.jpeg";
 import { canvas } from "./utils/canvas";
 import { checkIsTouchDevice } from "./utils/func";
-import { store, actions } from "./store";
+import { actions } from "./store";
 
 const resizeCanvas = () => {
   const viewportWidth = visualViewport.width;

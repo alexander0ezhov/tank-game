@@ -1,5 +1,4 @@
 import store from "./store";
-import { controls } from "../utils/canvas";
 
 export const addEnemy = (enemy) => {
   store.enemies.push(enemy);
@@ -9,7 +8,7 @@ export const removeEnemy = (index) => {
   store.enemies.splice(index, 1);
 };
 
-export const removeEnemyWithDelay = (index, delay = 1000) =>
+export const removeEnemyWithDelay = (index, delay = 100) =>
   setTimeout(removeEnemy.bind(null, index), delay);
 
 export const setPlayer = (player) => {
@@ -22,7 +21,13 @@ export const startGame = () => {
 };
 
 export const gameOver = () => {
-  store.isGameOverScreen = true;
+  setTimeout(() => {
+    store.isGameOverScreen = true;
+    setTimeout(() => {
+      store.isStartScreen = true;
+      store.isGameOverScreen = false;
+    }, 2000);
+  }, 400);
 };
 
 export const initializeTouchButtons = () => {

@@ -29,6 +29,7 @@ class Tank {
   }
 
   move() {
+    if (this.explosion) return;
     switch (this.direction) {
       case "top": {
         if (this.position.y < this.border) return;

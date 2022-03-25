@@ -1,5 +1,5 @@
 import { directionAngles } from "../utils/constants";
-import { checkClash, drawRotatedImage, garbageCollector } from "../utils/func";
+import { clash, drawRotatedImage, garbageCollector } from "../utils/func";
 import { BulletImage, ExplosionImage, ShootImage } from "../utils/images";
 
 export default (tank) => {
@@ -15,8 +15,8 @@ export default (tank) => {
 
   const drawBullet = (bullet, idx) => {
     bullet.move();
-    const clashedElement = checkClash(bullet);
-    if (clashedElement || garbageCollector(bullet.position))
+    const isClash = clash(bullet);
+    if (isClash || garbageCollector(bullet.position))
       return tank.bullets.splice(idx, 1);
     tank.bullets[idx] = bullet;
     drawRotatedImage(

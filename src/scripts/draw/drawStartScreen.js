@@ -1,12 +1,12 @@
 import { canvas, ctx } from "../utils/canvas";
 
 export default (startScreen) => {
-  ctx.font = "64px serif";
+  ctx.font = "64px sans-serif";
   ctx.fillStyle = "darkred";
   ctx.fillText("TANK", canvas.width / 2 - 180, canvas.height / 3 - 50);
   ctx.fillStyle = "black";
   ctx.fillText("GAME", canvas.width / 2 + 30, canvas.height / 3 - 50);
-  ctx.font = "24px serif";
+  ctx.font = "24px sans-cserif";
   ctx.fillStyle = "darkgreen";
   startScreen.menuItems.map((item, index) =>
     ctx.fillText(
