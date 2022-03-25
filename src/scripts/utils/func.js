@@ -4,6 +4,9 @@ import { actions, store } from "../store";
 import { gameOver, removeEnemyWithDelay } from "../store/actions";
 import Enemy from "../classes/enemy";
 
+export const gameIsRunning = () =>
+  !store.isGameOverScreen && !store.isStartScreen;
+
 export const drawRotatedImage = (image, x, y, w, h, angle = 0) => {
   ctx.save();
   ctx.translate(x, y);
@@ -64,7 +67,7 @@ export const generateEnemy = () => {
 };
 
 export const enemyGenerator = () => {
-  generateEnemy();
+  gameIsRunning() && generateEnemy();
   setInterval(generateEnemy, 5000);
 };
 
@@ -72,6 +75,3 @@ export const checkIsTouchDevice = () =>
   "ontouchstart" in window ||
   navigator.maxTouchPoints > 0 ||
   navigator.msMaxTouchPoints > 0;
-
-export const gameIsRunning = () =>
-  !store.isGameOverScreen && !store.isStartScreen;
