@@ -6,14 +6,12 @@ import drawGameOverScreen from "./draw/drawGameOverScreen";
 import { ctx, canvas, fps } from "./utils/canvas";
 import { enemyGenerator } from "./utils/func";
 import init from "./init";
-import { store, actions } from "./store";
+import { store } from "./store";
 
 export default () => {
-  const { setPlayer } = actions;
   const startScreen = new StartScreen();
   init();
   enemyGenerator();
-  setPlayer(new Player());
 
   const draw = () => {
     const { enemies, player, isStartScreen, isGameOverScreen } = store;

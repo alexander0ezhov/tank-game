@@ -36,6 +36,7 @@ const explose = (pos, target, delay) => {
 };
 
 export const clash = (current) => {
+  gameOver();
   const enemyTargetIndex = store.enemies.findIndex((enemy) =>
     approximatePosition(current, enemy)
   );

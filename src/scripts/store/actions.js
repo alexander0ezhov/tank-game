@@ -1,4 +1,5 @@
 import store from "./store";
+import Player from "../classes/player";
 
 export const addEnemy = (enemy) => {
   store.enemies.push(enemy);
@@ -11,13 +12,11 @@ export const removeEnemy = (index) => {
 export const removeEnemyWithDelay = (index, delay = 100) =>
   setTimeout(removeEnemy.bind(null, index), delay);
 
-export const setPlayer = (player) => {
-  store.player = player;
-};
-
 export const startGame = () => {
   store.isStartScreen = false;
   store.isGameOverScreen = false;
+  store.player = new Player();
+  store.enemies = [];
 };
 
 export const gameOver = () => {
